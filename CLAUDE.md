@@ -18,12 +18,14 @@
 
 ```bash
 pnpm preview   # ローカル開発（Cloudflare Workers, port 8787）
-pnpm run deploy    # 本番デプロイ（最後に scripts/warm-cache.mjs で作り置きを温める）
+pnpm run deploy    # 本番デプロイ（最後に scripts/warm-cache.mjs で作り置きを温める）。普段は CI が実行する
 pnpm lint      # ESLint（src 配下。整形ルール Prettier も含む）
 pnpm lint:fix  # 自動修正できる lint エラー・整形を直す
 ```
 
 **`pnpm dev` は使わない。** 必ず `pnpm preview` を使うこと。
+
+`master` へ push すると、`.github/workflows/ci.yml` が lint と型チェックを行い、通れば本番へデプロイする（文書だけの変更では動かない）。DB のスキーマ変更は自動で適用されないので、新しいスキーマを使うコードを push する前に手元で適用する。
 
 ## 環境変数
 

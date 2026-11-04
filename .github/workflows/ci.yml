@@ -1,0 +1,59 @@
+# lint と型チェックを行い、master への push で通ったときだけ本番へデプロイする
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [master]
+    # デプロイすると作り置きが空になるので、文書だけの変更では動かさない
+    paths-ignore:
+      - 'docs/**'
+      - 'documents/**'
+      - '**/*.md'
+
+# 既定の権限を読み取りだけにする。公開リポジトリなので、万一のときに書き込めないようにする
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      # 外部の Action はデプロイ用の Secret にも触れるので、タグではなくコミットで固定する
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      # pnpm のバージョンは package.json の packageManager から決まる
+      - uses: pnpm/action-setup@73e46992e05b19abd31f2f3c20e0e7370d762115 # v6.1.1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm lint
+      - run: pnpm exec tsc --noEmit
+
+  deploy:
+    needs: check
+    # pull_request では Secret を使うデプロイを動かさない
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    # 続けて push しても同時に走らせない。途中で止めると半端な状態になるので、キャンセルはせず順番に待つ
+    concurrency:
+      group: deploy-production
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: pnpm/action-setup@73e46992e05b19abd31f2f3c20e0e7370d762115 # v6.1.1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm run deploy
+        env:
+          # ビルド中に next.config.ts が R2（remote）へ接続するので、ビルドの段階からトークンが要る
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          # ビルド時に一覧ページなどを作るため Neon を読む。Worker の実行時は wrangler secret の値を使う
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
