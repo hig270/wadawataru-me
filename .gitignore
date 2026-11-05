@@ -53,9 +53,10 @@ next-env.d.ts
 
 !.dev.vars.example
 
-# 就活用の個人的なメモ
+# 個人的なメモ
 /es-challenge.txt
 /portfolio-description.md
+/interview-work-log.md
 
 # 移行スクリプトなどが書き出す DB のバックアップ（下書きの本文などを含むためコミットしない）
 /backups/
