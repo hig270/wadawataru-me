@@ -21,7 +21,22 @@ const nextConfig: NextConfig = {
 	// x-powered-by: Next.js を出さない（使っている技術をわざわざ知らせない）
 	poweredByHeader: false,
 	async headers() {
-		return [{ source: "/:path*", headers: SECURITY_HEADERS }];
+		return [
+			{ source: "/:path*", headers: SECURITY_HEADERS },
+			{
+				// 画像 API は sandbox 入りの厳しい CSP を自分で返すので、上書きしないよう対象から外す
+				source: "/((?!api/images/).*)",
+				headers: [
+					{
+						// Flash などの埋め込みと、<base> タグで相対 URL の行き先を変える攻撃だけを止める
+						// script-src で守るには nonce が必要だが、nonce は毎回ページを作る必要があり作り置きと両立しない。
+						// form-action は GitHub ログインの転送を妨げるおそれがあるので入れない
+						key: "Content-Security-Policy",
+						value: "object-src 'none'; base-uri 'self'",
+					},
+				],
+			},
+		];
 	},
 };
 
