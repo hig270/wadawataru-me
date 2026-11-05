@@ -27,6 +27,8 @@ pnpm lint:fix  # 自動修正できる lint エラー・整形を直す
 
 `master` へ push すると、`.github/workflows/ci.yml` が lint と型チェックを行い、通れば本番へデプロイする（文書だけの変更では動かない）。DB のスキーマ変更は自動で適用されないので、新しいスキーマを使うコードを push する前に手元で適用する。
 
+秘密情報の混入は gitleaks で 2 段階に確かめる。コミット前は `.githooks/pre-commit`（クローンごとに `git config core.hooksPath .githooks` で有効にする。`gitleaks` が未導入なら警告だけ出して通す）、push 後は `.github/workflows/secret-scan.yml`（文書だけの変更でも履歴全体を調べる。デプロイは止めない）。リポジトリは公開なので、見つかったら履歴から消す前に、まずそのキーを再発行する。
+
 ## 環境変数
 
 - ローカル: `.dev.vars`（`.env.local` ではない）

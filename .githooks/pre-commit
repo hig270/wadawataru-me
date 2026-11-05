@@ -1,0 +1,14 @@
+#!/bin/sh
+# コミットする内容に秘密情報が含まれていれば、コミットを止める（履歴に残る前に防ぐため）
+# 有効にする: git config core.hooksPath .githooks
+# 誤検出で止まったときは、その行の末尾に「gitleaks:allow」とコメントを書くと対象から外れる
+
+# gitleaks が入っていない環境でもコミットはできるようにする（CI の Secret Scan でも調べるので、すり抜けても検出できる）
+if ! command -v gitleaks >/dev/null 2>&1; then
+  echo "warning: gitleaks が見つからないので、秘密情報の確認を飛ばしました" >&2
+  exit 0
+fi
+
+# --pre-commit --staged で、これからコミットする内容（ステージ済みの差分）だけを調べる
+# --verbose でファイルと行を表示する（なければ件数しか出ない）。値は --redact で伏せる
+exec gitleaks git --pre-commit --staged --redact --verbose --no-banner .
