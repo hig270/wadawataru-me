@@ -65,7 +65,7 @@ function SocialIcons() {
   return (
     <>
       <a
-        href="https://github.com/higuchi-learn"
+        href="https://github.com/hig270"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="GitHub"

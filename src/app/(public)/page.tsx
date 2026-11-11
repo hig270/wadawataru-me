@@ -415,7 +415,7 @@ const nowItems = [
 ];
 
 const links = [
-  { label: 'GitHub', icon: 'github', href: 'https://github.com/higuchi-learn' },
+  { label: 'GitHub', icon: 'github', href: 'https://github.com/hig270' },
   { label: 'X', icon: 'x', href: 'https://x.com/hig270' },
   { label: 'Wantedly', icon: 'wantedly', href: 'https://www.wantedly.com/id/haruki_higuchi_000' },
   { label: 'Qiita', icon: 'qiita', href: 'https://qiita.com/wada_wataru' },

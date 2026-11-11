@@ -34,7 +34,7 @@ XIAO BLE Sense / C++ / BLE / 6軸加速度センサー
 
 ## リンク
 
-- [GitHub（ハードウェア）](https://github.com/higuchi-learn/GestureAudio)
+- [GitHub（ハードウェア）](https://github.com/hig270/GestureAudio)
 - [GitHub（フロントエンド）](https://github.com/rinyaaa/Music)
 - [発表スライド](https://www.canva.com/design/DAGvlxQLaRw/8fbZ3A8wx9VI0na9Rp_ppA/view)
 `,
@@ -77,7 +77,7 @@ MicroPython / Raspberry Pi Pico W / HTTP（擬似リアルタイム）/ セン�
 
 ## リンク
 
-- [GitHub](https://github.com/higuchi-learn/lovely-stick)
+- [GitHub](https://github.com/hig270/lovely-stick)
 - [発表スライド](https://www.canva.com/design/DAGeeEF3T2U/qEBiPbFmTjxi5IjgVbHxjg/view)
 `,
   'bingo2': `大人数のビンゴ大会をデジタル化した Web アプリです。紙のビンゴカードをスマートフォン・PC で代替し、ビンゴカードの自動生成・リアルタイム判定・リーチ/ビンゴ確率の表示まで行えます。ルームを作成して複数人で参加でき、1台のパソコンと参加者のスマホがあればすぐにビンゴ大会を開けます。
@@ -113,7 +113,7 @@ TypeScript / Next.js / Tailwind CSS / Shadcn UI / Firebase（Firestore）
 
 ## リンク
 
-- [GitHub](https://github.com/higuchi-learn/syshack-bingo)
+- [GitHub](https://github.com/hig270/syshack-bingo)
 - [発表スライド](https://www.canva.com/design/DAGjQ4RHnYU/YvluRIHCfkngv1QldyFMLQ/view)
 `,
   'entry-system': `カメラ映像から顔を認識して、部室の入退室を管理するシステムです。Raspberry Pi に接続したカメラで人物を検出・識別し、入退室の記録をリアルタイムで Web アプリに反映します。部室の利用状況を可視化することで、オープンで活気ある空間の雰囲気づくりを目的に開発しました。
@@ -142,8 +142,8 @@ Raspberry Pi / Python / FastAPI / MariaDB / face_recognition / TypeScript / Next
 
 ## リンク
 
-- [GitHub（バックエンド）](https://github.com/higuchi-learn/koukaten)
-- [GitHub（フロントエンド）](https://github.com/higuchi-learn/koukaten2025)
+- [GitHub（バックエンド）](https://github.com/hig270/koukaten)
+- [GitHub（フロントエンド）](https://github.com/hig270/koukaten2025)
 - [発表資料](https://www.canva.com/design/DAG1Mb6DHuk/p7vP5TPRKIIREpATK6HkZQ/view)
 `,
   '23bit-adder': `23個の全加算器を用いて、最大 (2^23 - 1) + (2^23 - 1) の加算結果を 7 セグメント LED で表示する電子回路です。全加算器をブレッドボード上に組み上げ、2つの入力値の加算結果を 8 桁の 7 セグメント LED に表示します。
@@ -178,7 +178,7 @@ Arduino Nano Every / C++ / トランジスタ / シフトレジスタ / 7 セグ
 
 ## リンク
 
-- [GitHub](https://github.com/higuchi-learn/20adder)
+- [GitHub](https://github.com/hig270/20adder)
 `,
   'chicken-shooting': `顔の動きでゲームを操作する、物体検出連携ゲームです。Web カメラで顔を検出し、顔の向き・角度をリアルタイムで Unity に送信することで、体を使ってゲームを操作する仕組みを目指しました。Tokyo Game Show への出展を目標に開発を始め、2026年9月の東京ゲームショウに出展しました。
 
@@ -209,7 +209,7 @@ Python / YOLO / CVAT / Unity (C#) / ソケット通信
 
 ## リンク
 
-- [GitHub](https://github.com/higuchi-learn/chicken_send)
+- [GitHub](https://github.com/hig270/chicken_send)
 `,
   'syspay': `大学祭の模擬店向けオンライン注文システムです。愛知工業大学 工科展2024で優秀賞を受賞しました。
 
@@ -250,7 +250,7 @@ TypeScript / React / Vite / Supabase
 ## リンク
 
 - [サービス](https://micro-spot.vercel.app)
-- [GitHub](https://github.com/higuchi-learn/gen-c-project)
+- [GitHub](https://github.com/hig270/gen-c-project)
 `,
   'wadawataru-me': `自分に関する情報を共有するための、ブログ投稿サイト兼ポートフォリオです。CMS を自作し、ポートフォリオを通して技術力を示すことも目的にしています。
 
@@ -284,7 +284,7 @@ Next.js + Cloudflare Workers + Neon + Drizzle + Hono + Tailwind CSS に変更し
 
 ## リンク
 
-- [GitHub](https://github.com/higuchi-learn/wadawataru-me)
+- [GitHub](https://github.com/hig270/wadawataru-me)
 `,
 };
 

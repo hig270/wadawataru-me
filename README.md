@@ -12,7 +12,7 @@ https://github.com/user-attachments/assets/767e354e-5831-4ef5-9df6-5806827439d1
 [Figma](https://www.figma.com/design/js6RZs7E0hbl6yQcoEN4em/%E3%83%9D%E3%83%BC%E3%83%88%E3%83%95%E3%82%A9%E3%83%AA%E3%82%AA%E3%82%B5%E3%82%A4%E3%83%88?node-id=8-257&t=GawAvr6926AMOBsB-1)
 ここをかなり作り込んだので, FigmaMCPを用いた結果ほぼスタイルに関してコーディングを行うことは無かった
 ## 開発記録
-[wadawataru-me/documents/v2-road.md at master · higuchi-learn/wadawataru-me · GitHub](https://github.com/higuchi-learn/wadawataru-me/blob/master/documents/v2-road.md)
+[wadawataru-me/documents/v2-road.md at master · hig270/wadawataru-me · GitHub](https://github.com/hig270/wadawataru-me/blob/master/documents/v2-road.md)
 ## 制作背景
 ### 課題
 - ラフな技術発信はQiita, テクノロジーに尖った･本気の技術発信はZenn, 技術に関係ない思想ははてなブログやしずかなインターネット, 個人的なブログは〇〇をブログ...みたいな使い分けをするのは面倒.

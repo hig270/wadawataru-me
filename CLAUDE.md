@@ -76,7 +76,7 @@ pnpm lint:fix  # 自動修正できる lint エラー・整形を直す
 
 ## 認証
 
-- GitHub OAuth で `higuchi-learn` アカウントのみ許可
+- GitHub OAuth で `hig270` アカウントのみ許可
 - 未認証アクセスは `/login` にリダイレクト
 
 ## 主要な制約・注意点
